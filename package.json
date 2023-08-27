@@ -1,0 +1,25 @@
+{
+    "name": "x-view",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build"
+    },
+    "dependencies": {
+        "@cornerstonejs/dicom-image-loader": "^1.11.2",
+        "bootstrap": "^5.3.1",
+        "cornerstone-core": "^2.6.1",
+        "dicom-parser": "^1.8.21",
+        "vue": "^3.2.13"
+    },
+    "devDependencies": {
+        "@vue/cli-service": "~5.0.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead",
+        "not ie 11"
+    ]
+}
