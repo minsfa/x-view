@@ -34,4 +34,6 @@ export class ImageInfo {
     zoom(factor) {
         this.zoomFactor = Math.max(this.zoomFactor * factor, 1);
     }
+
+    rescalePixelValue = value => value * this.rescaleSlope + this.rescaleIntercept;
 }

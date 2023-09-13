@@ -10,6 +10,9 @@ export async function loadImage(imageInfo, view) {
     imageInfo.windowWidth ??= image.windowWidth;
     imageInfo.windowCenter ??= image.windowCenter;
     imageInfo.pixelSpacing ??= image.rowPixelSpacing;
+    imageInfo.rescaleSlope ??= image.data.floatString('x00281053') ?? 1;
+    imageInfo.rescaleIntercept ??= image.data.floatString('x00281052') ?? 0;
+
     updateImage(view);
     return image;
 }

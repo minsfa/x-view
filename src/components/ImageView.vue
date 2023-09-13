@@ -106,7 +106,11 @@ function mouseMove(event) {
     }
 
     if (image) {
-        emits('mouseUpdate', getMouseData(view.value, image, event.clientX, event.clientY));
+        const mouseData = getMouseData(view.value, image, event.clientX, event.clientY);
+        if (mouseData) {
+            mouseData.value = props.imageInfo.rescalePixelValue(mouseData.value);
+        }
+        emits('mouseUpdate', mouseData);
     }
 }
 
