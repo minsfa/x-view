@@ -1,3 +1,6 @@
+import { reactive, watch } from 'vue'
+import VueCookies from 'vue-cookies'
+
 export const settings = {
     storageUrl: 'http://localhost:5100',
     controlBarWidth: '65px',
@@ -20,3 +23,9 @@ export const settings = {
     },
     annotationMinDragDistance: 5
 };
+
+export const cookieSettings = reactive(VueCookies.get('settings') ?? {
+    showInfo: true
+});
+
+watch(cookieSettings, value => VueCookies.set('settings', value));

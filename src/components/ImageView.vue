@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { settings } from '../scripts/settings'
+import { settings, cookieSettings } from '../scripts/settings'
 import { loadImage, unloadImage, addRenderer, removeRenderer, updateImageEx, getScale, getMouseData } from '../scripts/cornerstone'
 import { annotationMode } from '../scripts/annotations'
 import { Point } from '../scripts/point'
@@ -134,6 +134,6 @@ function wheel(event) {
     <div ref="view" class="image-view" :class="{ 'image-view-selected': selected }" style="position: relative;"
         oncontextmenu="return false" @click="click" @dblclick="doubleClick" @mousedown="mouseDown" @mouseup="mouseUp"
         @mousemove="mouseMove" @mouseleave="mouseLeave" @wheel="wheel">
-        <ImageOverlay v-if="dataset" :imageInfo="imageInfo" :dataset="dataset" />
+        <ImageOverlay v-if="dataset && cookieSettings.showInfo" :imageInfo="imageInfo" :dataset="dataset" />
     </div>
 </template>

@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUpdated } from 'vue'
 import { getImageUrls } from '../scripts/services'
 import { clamp } from '../scripts/math'
-import { settings } from '../scripts/settings'
+import { settings, cookieSettings } from '../scripts/settings'
 import { updateImageEx, resizeViews } from '../scripts/cornerstone'
 import { annotationMode } from '../scripts/annotations'
 import { ImageInfo } from '../scripts/imageInfo'
@@ -171,6 +171,10 @@ function clearAnnotations() {
             </button>
             <button class="btn" @click="clearAnnotations">
                 <img src="../assets/delete-pen.png" />
+            </button>
+            <button class="btn" :class="{ active: cookieSettings.showInfo }"
+                @click="cookieSettings.showInfo = !cookieSettings.showInfo">
+                <img src="../assets/info.png" />
             </button>
             <div class="mouse-data">
                 <div>X: {{ mouseData?.x }}</div>

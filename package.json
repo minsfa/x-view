@@ -11,7 +11,8 @@
         "bootstrap": "^5.3.1",
         "cornerstone-core": "^2.6.1",
         "dicom-parser": "^1.8.21",
-        "vue": "^3.2.13"
+        "vue": "^3.2.13",
+        "vue-cookies": "^1.8.3"
     },
     "devDependencies": {
         "@vue/cli-service": "~5.0.0"
