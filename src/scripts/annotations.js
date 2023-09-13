@@ -1,8 +1,9 @@
+import { reactive } from 'vue'
 import { settings } from './settings'
 import * as cornerstone from 'cornerstone-core'
 import { Point } from './point'
 
-export const annotationMode = {
+export const annotationMode = reactive({
     name: null,
     reset() {
         this.name = null;
@@ -16,7 +17,7 @@ export const annotationMode = {
         this.name = 'Rectangle';
         this.drawDesigner = new LineDrawDesigner(() => new Rectangle());
     }
-};
+});
 
 class Line {
     draw(context, pixelSpacing) {

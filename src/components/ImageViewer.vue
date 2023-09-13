@@ -124,12 +124,9 @@ function transformImage(transformFunc) {
     updateImageEx(selectedImageInfo.value);
 }
 
-const annotationModeName = ref(null);
-
 function setAnnotationMode(name) {
     const propertyName = annotationMode.name != name ? 'set' + name : 'reset';
     annotationMode[propertyName]();
-    annotationModeName.value = annotationMode.name;
 }
 
 function clearAnnotations() {
@@ -165,10 +162,10 @@ function clearAnnotations() {
             <button class="btn" @click="resetImage">
                 <img src="../assets/home.png" />
             </button>
-            <button class="btn" :class="{ active: annotationModeName == 'Line' }" @click="setAnnotationMode('Line')">
+            <button class="btn" :class="{ active: annotationMode.name == 'Line' }" @click="setAnnotationMode('Line')">
                 <img src="../assets/line.png" />
             </button>
-            <button class="btn" :class="{ active: annotationModeName == 'Rectangle' }"
+            <button class="btn" :class="{ active: annotationMode.name == 'Rectangle' }"
                 @click="setAnnotationMode('Rectangle')">
                 <img src="../assets/rectangle.png" />
             </button>
