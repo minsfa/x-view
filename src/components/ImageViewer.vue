@@ -139,39 +139,40 @@ function clearAnnotations() {
 <template>
     <div>
         <div class="control-bar p-1">
-            <LayoutDropdown @click="clickLayout" />
-            <button class="btn" @click="flipImageHorizontally">
+            <LayoutDropdown title="Layout" @click="clickLayout" />
+            <button class="btn" title="Flip Horizontally" @click="flipImageHorizontally">
                 <img src="../assets/flip-horz.png" />
             </button>
-            <button class="btn" @click="flipImageVertically">
+            <button class="btn" title="Flip Vertically" @click="flipImageVertically">
                 <img src="../assets/flip-vert.png" />
             </button>
-            <button class="btn" @click="rotateImageLeft">
+            <button class="btn" title="Rotate Left" @click="rotateImageLeft">
                 <img src="../assets/rotate-left.png" />
             </button>
-            <button class="btn" @click="rotateImageRight">
+            <button class="btn" title="Rotate Right" @click="rotateImageRight">
                 <img src="../assets/rotate-right.png" />
             </button>
-            <button class="btn" @click="zoomImageIn">
+            <button class="btn" title="Zoom In" @click="zoomImageIn">
                 <img src="../assets/zoom-in.png" />
             </button>
-            <button class="btn" @click="zoomImageOut">
+            <button class="btn" title="Zoom Out" @click="zoomImageOut">
                 <img src="../assets/zoom-out.png" />
             </button>
-            <button class="btn" @click="resetImage">
+            <button class="btn" title="Reset" @click="resetImage">
                 <img src="../assets/home.png" />
             </button>
-            <button class="btn" :class="{ active: annotationMode.name == 'Line' }" @click="setAnnotationMode('Line')">
+            <button class="btn" :class="{ active: annotationMode.name == 'Line' }" title="Line"
+                @click="setAnnotationMode('Line')">
                 <img src="../assets/line.png" />
             </button>
-            <button class="btn" :class="{ active: annotationMode.name == 'Rectangle' }"
+            <button class="btn" :class="{ active: annotationMode.name == 'Rectangle' }" title="Rectangle"
                 @click="setAnnotationMode('Rectangle')">
                 <img src="../assets/rectangle.png" />
             </button>
-            <button class="btn" @click="clearAnnotations">
+            <button class="btn" title="Clear Annotations" @click="clearAnnotations">
                 <img src="../assets/delete-pen.png" />
             </button>
-            <button class="btn" :class="{ active: cookieSettings.showInfo }"
+            <button class="btn" :class="{ active: cookieSettings.showInfo }" title="Info"
                 @click="cookieSettings.showInfo = !cookieSettings.showInfo">
                 <img src="../assets/info.png" />
             </button>
