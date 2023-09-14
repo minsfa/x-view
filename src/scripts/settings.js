@@ -24,8 +24,16 @@ export const settings = {
     annotationMinDragDistance: 5
 };
 
-export const cookieSettings = reactive(VueCookies.get('settings') ?? {
+const defaultCookieSettings = {
     showInfo: true
-});
+};
+const validateCookieSettings = value => typeof value.showInfo == 'boolean';
+
+let value = VueCookies.get('settings') ?? defaultCookieSettings;
+if (!validateCookieSettings(value)) {
+    value = defaultCookieSettings;
+}
+
+export const cookieSettings = reactive(value);
 
 watch(cookieSettings, value => VueCookies.set('settings', value));
