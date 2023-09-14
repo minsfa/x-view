@@ -25,9 +25,11 @@ export const settings = {
 };
 
 const defaultCookieSettings = {
+    layout: [1, 1],
     showInfo: true
 };
-const validateCookieSettings = value => typeof value.showInfo == 'boolean';
+const validateCookieSettings = value => Array.isArray(value.layout) && typeof value.layout[0] == 'number' && typeof value.layout[1] == 'number' &&
+    typeof value.showInfo == 'boolean';
 
 let value = VueCookies.get('settings') ?? defaultCookieSettings;
 if (!validateCookieSettings(value)) {

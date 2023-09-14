@@ -31,12 +31,11 @@ onUpdated(() => {
 });
 
 const startImageIndex = ref(0);
-const layout = ref([1, 1]);
-const layoutCount = computed(() => layout.value[0] * layout.value[1]);
+const layoutCount = computed(() => cookieSettings.layout[0] * cookieSettings.layout[1]);
 const gridTemplate = n => ((100 / n) + '% ').repeat(n);
 
 function clickLayout(value) {
-    layout.value = value;
+    cookieSettings.layout = value;
     startImageIndex.value = clamp(startImageIndex.value, 0, Math.max(imageInfos.value.length - layoutCount.value, 0));
     validateStartImageIndex();
     restoreData = null;
@@ -69,11 +68,11 @@ let restoreData = null;
 
 function doubleClickImage(value) {
     if (!restoreData) {
-        restoreData = [layout.value, startImageIndex.value];
-        layout.value = [1, 1];
+        restoreData = [cookieSettings.layout, startImageIndex.value];
+        cookieSettings.layout = [1, 1];
     }
     else {
-        layout.value = restoreData[0];
+        cookieSettings.layout = restoreData[0];
         startImageIndex.value = restoreData[1];
         restoreData = null;
     }
@@ -183,7 +182,7 @@ function clearAnnotations() {
             </div>
         </div>
         <div class="image-grid"
-            :style="{ gridTemplateRows: gridTemplate(layout[0]), gridTemplateColumns: gridTemplate(layout[1]) }">
+            :style="{ gridTemplateRows: gridTemplate(cookieSettings.layout[0]), gridTemplateColumns: gridTemplate(cookieSettings.layout[1]) }">
             <ImageView v-for="imageInfo in fullscaleImageInfos()" :key="imageInfo?.url" :imageInfo="imageInfo"
                 :selected="imageInfo && imageInfo == selectedImageInfo" @click="clickImage" @doubleClick="doubleClickImage"
                 @mouseUpdate="updateMouseData" />
