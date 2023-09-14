@@ -95,8 +95,8 @@ function mouseMove(event) {
                 updateImageEx(props.imageInfo);
                 break;
             case 2:
-                props.imageInfo.windowWidth -= (event.clientX - lastDragPoint.x) * 10;
-                props.imageInfo.windowCenter += (event.clientY - lastDragPoint.y) * 10;
+                props.imageInfo.windowWidth -= (event.clientX - lastDragPoint.x) * props.imageInfo.originalWindowWidth / view.value.clientWidth;
+                props.imageInfo.windowCenter += (event.clientY - lastDragPoint.y) * props.imageInfo.originalWindowWidth / view.value.clientHeight;
                 updateImageEx(props.imageInfo);
 
                 emits('click', props.imageInfo);
