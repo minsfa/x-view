@@ -2,16 +2,22 @@ export class ImageInfo {
     constructor(url) {
         this.url = url;
         this.annotations = [];
-        this.reset();
+        this.initialize();
     }
 
-    reset() {
+    initialize() {
         this.flipX = false;
         this.flipY = false;
         this.rotation = 0;
         this.zoomFactor = 1;
         this.offsetX = 0;
         this.offsetY = 0;
+    }
+
+    reset() {
+        this.initialize();
+        this.windowWidth = this.originalWindowWidth;
+        this.windowCenter = this.originalWindowCenter;
     }
 
     flip(horizontal) {
